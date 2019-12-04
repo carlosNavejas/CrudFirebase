@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -80,7 +81,7 @@ public class PlanesAdaptador extends RecyclerView.Adapter<PlanesAdaptador.PlanVi
                 Intent pl = new Intent(activity, Editar.class);
                 pl.putExtra("keyplan", keyPlan);
                 pl.putExtra("nombre", plan.getNombre());
-                pl.putExtra("edad", plan.getEdad());
+                pl.putExtra("edadd", plan.getEdad());
                 pl.putExtra("apellidos", plan.getApellidos());
                 activity.startActivity(pl);
             }
@@ -141,13 +142,13 @@ public class PlanesAdaptador extends RecyclerView.Adapter<PlanesAdaptador.PlanVi
         private TextView nombrePlan;
         private CardView miCard;
         private TextView clavePlan;
-        private ImageButton imgBtnDelete;
+        private Button imgBtnDelete;
 
         public PlanViewHolder(@NonNull View itemView) {
             super(itemView);
             nombrePlan = (TextView) itemView.findViewById(R.id.tvt_nombre);
             clavePlan = (TextView) itemView.findViewById(R.id.tvt_clavePlan);
-            imgBtnDelete = (ImageButton) itemView.findViewById(R.id.imgBtnEliminarNodo);
+            imgBtnDelete = (Button) itemView.findViewById(R.id.imgBtnEliminarNodo);
 
         }
 

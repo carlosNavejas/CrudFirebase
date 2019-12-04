@@ -34,12 +34,13 @@
             android:text="publicacion"
              />
 
-        <ImageButton
+        <Button
             android:id="@+id/imgBtnEliminarNodo"
-            android:layout_width="28dp"
+            android:layout_width="wrap_content"
             android:layout_marginLeft="140dp"
-            android:layout_height="28dp"
-            android:src="@mipmap/ic_deleteok"></ImageButton>
+            android:layout_height="wrap_content"
+
+            android:text="Eliminar"></Button>
 
     </LinearLayout>
 

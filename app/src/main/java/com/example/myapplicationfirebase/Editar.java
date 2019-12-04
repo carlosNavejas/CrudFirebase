@@ -22,7 +22,8 @@ public class Editar extends AppCompatActivity {
 
     private EditText eddnombre, eddapellidos, eddedad;
 
-    private String nombre, apellidos, edad;
+    private String nombre, apellidos;
+    private int edad;
     private String keyPlan;
     private DatabaseReference mDatabase;
 
@@ -48,6 +49,7 @@ public class Editar extends AppCompatActivity {
                     mDatabase.child("personas").child(keyPlan).setValue(planEdicion);
                     InputMethodManager im = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
                     im.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                    limpiarCampos();
                     Snackbar.make(getCurrentFocus(), "Editado con exito!!", Snackbar.LENGTH_SHORT).show();
                 }
 
@@ -59,10 +61,16 @@ public class Editar extends AppCompatActivity {
         }
     }
 
+    public void limpiarCampos() {
+        eddedad.setText(null);
+        eddapellidos.setText(null);
+        eddnombre.setText(null);
+    }
+
     public void inicarComponentes() {
         nombre = getIntent().getExtras().getString("nombre");
         apellidos = getIntent().getExtras().getString("apellidos");
-        edad = getIntent().getExtras().getString("edad");
+        edad = getIntent().getExtras().getInt("edadd");
         keyPlan = getIntent().getExtras().getString("keyplan");
         eddnombre = findViewById(R.id.edt_nombreEditar);
         eddapellidos = findViewById(R.id.edt_apellidosEditar);
@@ -73,7 +81,7 @@ public class Editar extends AppCompatActivity {
     public void llenarCamposAEditar() {
         eddnombre.setText(nombre);
         eddapellidos.setText(apellidos);
-        eddedad.setText(edad);
+        eddedad.setText(edad + "");
     }
 
     public boolean validarCampos() {
